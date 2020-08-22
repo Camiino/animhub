@@ -1,15 +1,9 @@
-  
 [build]
-  command = "echo 'hello Netlify build'"
-  publish = "fixtures/publishDir"
-  functions = "fixtures/functions"
-
+  functions = functions # must specify a functions folder for this to work
 [[plugins]]
-package = "@netlify/plugin-local-install-core"
-[[plugins]]
-  package = "./fixtures/generator"
-[[plugins]]
-  package = "./index.js"
-  [plugins.inputs]
-    exclude = ["/search.html"]
-    debugMode = true
+  package = netlify-plugin-search-index
+    # all inputs is optional, we just show you the defaults below
+    # [plugins.inputs]
+      # ignore = ["/ignore-this-file.html"] # don't index this file
+      # generatedFunctionName = search # change the name of generated folder in case of conflicts, use `null` to turn off
+      # publishDirJSONFileName = searchIndex # also use null to turn off
