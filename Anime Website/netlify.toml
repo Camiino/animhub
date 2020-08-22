@@ -1,1 +1,15 @@
-npm i netlify-plugin-search-index
+  
+[build]
+  command = "echo 'hello Netlify build'"
+  publish = "fixtures/publishDir"
+  functions = "fixtures/functions"
+
+[[plugins]]
+package = "@netlify/plugin-local-install-core"
+[[plugins]]
+  package = "./fixtures/generator"
+[[plugins]]
+  package = "./index.js"
+  [plugins.inputs]
+    exclude = ["/search.html"]
+    debugMode = true
